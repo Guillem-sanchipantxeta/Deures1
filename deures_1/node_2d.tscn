@@ -9,7 +9,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:position")
+tracks/0/path = NodePath("iu:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -21,7 +21,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Icon:rotation")
+tracks/1/path = NodePath("iu:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -33,7 +33,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Icon:self_modulate")
+tracks/2/path = NodePath("iu:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -48,7 +48,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:position")
+tracks/0/path = NodePath("iu:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -60,7 +60,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Icon:rotation")
+tracks/1/path = NodePath("iu:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -72,7 +72,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Icon:self_modulate")
+tracks/2/path = NodePath("iu:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -90,7 +90,7 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="iu" type="Sprite2D" parent="."]
 position = Vector2(396, 348)
 texture = ExtResource("1_wtcfe")
 
@@ -98,7 +98,25 @@ texture = ExtResource("1_wtcfe")
 libraries = {
 &"": SubResource("AnimationLibrary_0hol4")
 }
-speed_scale = 0.5
 script = ExtResource("2_0e48y")
 
+[node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
+position = Vector2(574, 326)
+
+[node name="Start" type="Button" parent="."]
+offset_left = 253.0
+offset_top = 82.0
+offset_right = 341.0
+offset_bottom = 139.0
+text = "START Loop"
+
+[node name="Stop Bucle" type="Button" parent="."]
+offset_left = 721.0
+offset_top = 94.0
+offset_right = 823.0
+offset_bottom = 149.0
+text = "STOP Loop"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]
+[connection signal="pressed" from="Start" to="AnimationPlayer" method="_on_button_pressed"]
+[connection signal="pressed" from="Stop Bucle" to="AnimationPlayer" method="_on_stop_bucle_pressed"]

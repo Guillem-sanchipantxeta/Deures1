@@ -1,10 +1,15 @@
 extends AnimationPlayer
 
-func _ready():
+@onready var iu
+
+
+
+
+func _on_button_pressed() -> void:
 	speed_scale = 0.5;
 	play("Iu")
 
 
-func _on_animation_finished(anim_name: StringName) -> void:
-	print("S'ha acabat!!")
-	play("Iu")
+
+func _on_stop_bucle_pressed() -> void:
+	speed_scale = 0.0;
